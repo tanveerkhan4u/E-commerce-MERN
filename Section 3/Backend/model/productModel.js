@@ -6,7 +6,8 @@ const myschema = new Schema({
   color: String,
   image: String,
   price: Number,
-  reviews: Number
+  reviews: Number,
+  location: String
 });
 
 module.exports = model('product', myschema);

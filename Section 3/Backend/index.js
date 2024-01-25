@@ -7,6 +7,9 @@ const PostRouter = require('./router/postRouter');
 const ProductRouter = require('./router/productRouter');
 
 
+const orderRouter = require('./router/orderRouter');
+
+
 
 // initialize express
 
@@ -27,6 +30,8 @@ app.use(express.json());
 app.use('/product', ProductRouter);
 
 
+app.use(express.json());
+app.use('/order', orderRouter);
 
 
 
@@ -47,10 +52,6 @@ app.get('/', (req, res) => {
 
 app.get('/add', (req, res) => {
   res.send('Add response from server');
-});
-
-app.get('/getall', (req, res) => {
-  res.send('Add response form getall')
 });
 
 app.get('/update', (req, res) => {

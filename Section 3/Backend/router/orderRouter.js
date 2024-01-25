@@ -1,5 +1,5 @@
 const express = require('express');
-const Model = require('../model/userModel');
+const Model = require('../model/orderModel');
 
 const router = express.Router();
 
@@ -21,7 +21,7 @@ router.post('/add', (req, res) => {
 router.get('/getall', (req, res) => {
    
    
-  Model.find()
+  Model.find().populate('user')
   .then((result) => {
     res.json(result);
   }).catch((err) => {
@@ -32,27 +32,6 @@ router.get('/getall', (req, res) => {
 
 
 //  : denotes a url parameter
-router.get('/getbyemail/:email', (req, res) => {
-   console.log(req.params.email);
-   Model.findOne({email : req.params.email})
-   .then((result) => {
-    res.json(result);
-   }).catch((err) => {
-    console.error(err);
-    res.status(500).json(err);
-   });
-})
-
-router.get('/getbylocation/:location', (req, res) => {
-console.log(req.params.location);
-Model.find({location : req.params.location})
-.then((result) => {
-  res.json(result);
-}).catch((err) => {
-  console.error(err);
-  res.status(500).json(err);
-});
-})
 
 
  router.get('/getbyid/:id', (req, res) => {
