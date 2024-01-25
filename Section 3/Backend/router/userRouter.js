@@ -14,7 +14,7 @@ router.post('/add', (req, res) => {
     console.error(err);
     res.json(err);
   });
-}); tanveerkhan
+}); 
 
 
 
